@@ -44,6 +44,7 @@ const Video = () => {
           {!isVideoLoaded ? (
             <button
               onClick={handleLoadVideo}
+              type="button"
               className="absolute inset-0 w-full h-full group cursor-pointer"
               aria-label="Play video"
             >
