@@ -51,15 +51,20 @@ const Hero = () => {
           variants={itemVariants}
           className="flex items-center justify-center gap-2 mb-4 [will-change:transform,opacity] motion-reduce:transition-none motion-reduce:transform-none"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-black/40 backdrop-blur-sm border border-[#252525]">
-            <span className="text-[#e1e1e1] text-sm font-medium">Backed by</span>
+          <Link
+            href="/pitch"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-black/40 backdrop-blur-sm border border hover:bg-black/60 transition-colors cursor-pointer"
+          >
+            <span className="text-text-secondary text-sm font-medium">
+              Backed by
+            </span>
             <div className="flex items-center gap-1.5">
               <div className="w-5 h-5 bg-gradient-to-br from-[#FF6154] to-[#FF8C00] rounded flex items-center justify-center">
                 <span className="text-white text-xs font-bold">U</span>
               </div>
               <span className="text-white text-sm font-medium">sers</span>
             </div>
-          </div>
+          </Link>
         </motion.div>
         <motion.h1
           variants={itemVariants}
@@ -69,7 +74,7 @@ const Hero = () => {
         </motion.h1>
         <motion.p
           variants={itemVariants}
-          className="w-full lg:text-2xl tracking-tight font-light sm:max-w-lg mx-auto lg:max-w-4xl lg:text-balance text-[#e1e1e1] [will-change:transform,opacity] motion-reduce:transition-none motion-reduce:transform-none"
+          className="w-full lg:text-2xl tracking-tight font-light sm:max-w-lg mx-auto lg:max-w-4xl lg:text-balance text-text-secondary [will-change:transform,opacity] motion-reduce:transition-none motion-reduce:transform-none"
         >
           Find top open-source repos in seconds. Filter by your language,
           framework, or niche. Start contributing in seconds, not hours.
@@ -92,7 +97,7 @@ const Hero = () => {
           </PrimaryButtom>
         </Link>
       </motion.div>
-      <div className="absolute h-[50%] w-full bg-gradient-to-t from-[#101010] via-transparent to-transparent bottom-0 left-1/2 -translate-x-1/2"></div>
+      <div className="absolute h-[50%] w-full bg-gradient-to-t from-surface-primary via-transparent to-transparent bottom-0 left-1/2 -translate-x-1/2"></div>
     </div>
   );
 };
