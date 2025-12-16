@@ -18,8 +18,10 @@ const Pitch = () => {
   const callbackUrl = `${pathname}#invest`;
 
   useEffect(() => {
-    if (window.location.hash === "#invest") {
-      const element = document.getElementById("invest");
+    // handle any hash, not just #invest
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1)); // remove the #
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -76,6 +78,7 @@ const Pitch = () => {
           <div className="h-full relative border-b border-[#252525]">
             <div className="py-8 border-b border-[#252525]">
               <motion.h2
+                id="the-pitch"
                 initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{
@@ -103,7 +106,7 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-4"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="mission-statement" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   mission statement
                 </h3>
                 <p className="text-text-secondary font-medium text-lg lg:text-xl lowercase">
@@ -131,7 +134,7 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-6"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="my-goal" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   my goal
                 </h3>
                 <p className="text-text-secondary font-medium text-lg lg:text-xl lowercase">
@@ -161,7 +164,7 @@ const Pitch = () => {
                   </li>
                   <li>
                     <CornerDownRight className="size-5 flex-shrink-0 text-[#a472ea] mt-1" />
-                    <span>freedom to ask anything anytime.</span>
+                    <span>gives you the freedom to ask anything anytime.</span>
                   </li>
                 </ul>
                 <p className="text-text-secondary font-medium text-lg lg:text-xl pt-4 lowercase">
@@ -187,7 +190,7 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-6"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="the-plan" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   the plan
                 </h3>
                 <p className="text-text-secondary font-medium text-lg lg:text-xl lowercase">
@@ -255,13 +258,13 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-8"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="philosophies" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   philosophies i follow
                 </h3>
 
                 {/* Philosophy #1 */}
                 <div className="space-y-4">
-                  <h4 className="text-xl lg:text-2xl font-medium text-brand-purple-light font-mono">
+                  <h4 id="stay-small-stay-effective" className="text-xl lg:text-2xl font-medium text-brand-purple-light font-mono">
                     #1 stay small. stay effective.
                   </h4>
                   <div className="space-y-4 text-text-secondary font-medium text-lg lowercase">
@@ -289,7 +292,7 @@ const Pitch = () => {
                         and authentic help by a human (me) time to time.
                         <br></br>
                         <br></br>
-                        because a human has a limit on how many people they can
+                        because a human has a limit on how many people he can
                         help in a single day. and this defeats my main mission
                         statement with which i started in the first place.
                       </p>
@@ -300,7 +303,7 @@ const Pitch = () => {
                         </span>
                       </p>
                       <p>
-                        if i go with this approach, i have to sacrifice those
+                        if i go with this approach, i'll have to sacrifice those
                         fancy dreams of raising millions, being on the front
                         page of magazines, having millions of users, etc.
                         <br></br>
@@ -313,15 +316,12 @@ const Pitch = () => {
                         effective forever.
                       </p>
                       <p className="font-bold underline decoration-brand-purple-light decoration-2">
-                        so i chose the #2 choice. why?
+                        so i choose the #2 choice. why?
                       </p>
                       <p className="text-brand-purple-light px-4 py-3">
                         because i&apos;d rather choose serving a hundred people
                         by providing them the best value in the market than
                         serving a million with an avg sub-standard product.
-                      </p>
-                      <p className="font-bold">
-                        so i choose to stay small and stay effective.
                       </p>
                       <p className="text-text-tertiary italic">
                         (for the same reasons, i&apos;ve rejected an{" "}
@@ -341,7 +341,7 @@ const Pitch = () => {
 
                 {/* Philosophy #2 */}
                 <div className="space-y-4">
-                  <h4 className="text-xl lg:text-2xl font-medium text-brand-purple-light font-mono">
+                  <h4 id="go-beyond-what-you-promise" className="text-xl lg:text-2xl font-medium text-brand-purple-light font-mono">
                     #2 go beyond what you promise.
                   </h4>
                   <div className="space-y-4 text-text-secondary font-medium text-lg lowercase">
@@ -374,7 +374,7 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-6"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="so-how-small" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   so how small?
                 </h3>
                 <p className="text-text-secondary font-medium text-lg lowercase">
@@ -393,7 +393,7 @@ const Pitch = () => {
                   .
                 </p>
                 <p className="text-text-secondary font-medium text-lg lowercase">
-                  so that means, at max i can only guide{" "}
+                  so that means, at max i can only mentor{" "}
                   <span className="text-brand-purple-light">
                     417 investors a month
                   </span>{" "}
@@ -425,7 +425,7 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-6"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="testimonials" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   what existing investors said about me?
                 </h3>
                 <div className="space-y-4 text-text-secondary font-medium text-lg lowercase">
@@ -433,6 +433,8 @@ const Pitch = () => {
                     check out{" "}
                     <Link
                       href="/pricing#testimonials"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-link hover:text-link-hover underline"
                     >
                       reviews
@@ -456,13 +458,13 @@ const Pitch = () => {
                 }}
                 className="max-w-4xl mx-auto space-y-8"
               >
-                <h3 className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
+                <h3 id="questions" className="text-2xl lg:text-3xl font-medium text-brand-purple-light font-mono">
                   questions you may have
                 </h3>
 
                 <div className="space-y-8">
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="not-beginner" className="text-xl font-medium text-brand-purple-light font-mono">
                       i&apos;m not an absolute beginner, so how does subscribing
                       to opensox.ai make sense to me?
                     </h4>
@@ -483,18 +485,18 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="quality-reduce" className="text-xl font-medium text-brand-purple-light font-mono">
                       will the quality of your service reduce as you grow?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
-                      never. this is the reason i&apos;m committed to only take
+                      never. this is the reason i&apos;m committed to only allow
                       417 investors a month. i can compromise with the growth,
                       revenue, etc, but never with the quality of the service.
                     </p>
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="how-opensox-pro-helps" className="text-xl font-medium text-brand-purple-light font-mono">
                       how does opensox.ai pro help me?
                     </h4>
                     <ul className="space-y-2 text-text-secondary font-medium text-lg pl-4 lowercase">
@@ -519,8 +521,8 @@ const Pitch = () => {
                       <li className="flex items-start gap-3">
                         <CornerDownRight className="size-4 flex-shrink-0 text-[#a472ea] mt-1" />
                         <span>
-                          at the same time, your pro plan on opensox.ai will be
-                          active, and pro newsletters, pro filters to search
+                          at the same time, your pro plan on opensox.ai will get
+                          activated, and pro newsletters, pro filters to search
                           open source projects, and other pro features will be
                           unlocked.
                         </span>
@@ -530,8 +532,16 @@ const Pitch = () => {
                         <span>
                           after that, we&apos;ll do weekly sessions where you
                           can ask me anything, and we&apos;ll discuss one
-                          particular topic - last week&apos;s was &quot;learning
-                          tech from the first principles&quot;.
+                          particular topic - last week&apos;s was &quot;
+                          <Link
+                            href="https://www.youtube.com/watch?v=24CdxwRq0PI"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-link hover:text-link-hover underline"
+                          >
+                            learning tech from the first principles
+                          </Link>
+                          &quot;.
                         </span>
                       </li>
                       <li className="flex items-start gap-3">
@@ -545,7 +555,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="time-to-results" className="text-xl font-medium text-brand-purple-light font-mono">
                       how much time does it take to get the results?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
@@ -562,7 +572,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="why-trust" className="text-xl font-medium text-brand-purple-light font-mono">
                       why should i trust you?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
@@ -578,6 +588,8 @@ const Pitch = () => {
                       i have done so far. and check the{" "}
                       <Link
                         href="/pricing#testimonials"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-link hover:text-link-hover underline"
                       >
                         reviews
@@ -587,7 +599,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="alternatives" className="text-xl font-medium text-brand-purple-light font-mono">
                       are there any alternatives to what you provide?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
@@ -599,7 +611,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="difference-from-course" className="text-xl font-medium text-brand-purple-light font-mono">
                       what&apos;s the difference between opensox pro and a
                       course?
                     </h4>
@@ -612,7 +624,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="for-beginners" className="text-xl font-medium text-brand-purple-light font-mono">
                       is it for an absolute beginner?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
@@ -621,7 +633,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="when-not-to-invest" className="text-xl font-medium text-brand-purple-light font-mono">
                       in what cases shouldn&apos;t i invest in opensox pro?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
@@ -651,7 +663,7 @@ const Pitch = () => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="text-xl font-medium text-brand-purple-light font-mono">
+                    <h4 id="best-in-market" className="text-xl font-medium text-brand-purple-light font-mono">
                       are you the best in the market?
                     </h4>
                     <p className="text-text-secondary font-medium text-lg lowercase">
